@@ -1,0 +1,23 @@
+{
+  "name": "mathword",
+  "version": "1.0.0",
+  "description": "ChatGPT Equations to Word Converter - Free LaTeX to Word Tool",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sheerazkumrani-arch/Mathword.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sheerazkumrani-arch/Mathword/issues"
+  },
+  "homepage": "https://github.com/sheerazkumrani-arch/Mathword#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
