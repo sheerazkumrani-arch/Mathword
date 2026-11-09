@@ -13,6 +13,7 @@ function inline(s){var out=[],last=0,m;IN.lastIndex=0;
   fmt(s.slice(last),out);return out}
 function parse(src){
   var disp=[];
+  if(/\\\\[\[(]/.test(src))src=src.replace(/\\\\/g,'\\');
   src=src.replace(/\r/g,'').replace(D,function(a,b,c){disp.push((b||c).trim());return '\n\u0001'+(disp.length-1)+'\u0001\n'});
   var L=src.split('\n'),B=[],i=0,m;
   while(i<L.length){
@@ -33,16 +34,17 @@ function parse(src){
   return B}
 function eqs(B){var a=[];B.forEach(function(b){if(b.t==='eq')a.push(b.tex);[b.r].concat(b.rows||[]).forEach(function(x){(function w(r){if(!r)return;if(r.forEach)r.forEach(w);else if(r.k==='m')a.push(r.tex)})(x)})});return a}
 function math(tex,disp,copy){try{return root.katex.renderToString(tex,{displayMode:disp,throwOnError:false,output:copy?'mathml':'htmlAndMathml'})}catch(e){return esc(tex)}}
-function hruns(rs,copy){return rs.map(function(r){
-  if(r.k==='m')return math(r.tex,false,copy);
+function wmath(tex,disp,om){try{var o=om(tex);return '<!--[if gte msEquation 12]>'+(disp?'<m:oMathPara>'+o+'</m:oMathPara>':o)+'<![endif]--><![if !msEquation]><i>'+esc(tex)+'</i><![endif]>'}catch(e){return '<i>'+esc(tex)+'</i>'}}
+function hruns(rs,copy,om){return rs.map(function(r){
+  if(r.k==='m')return (copy&&om)?wmath(r.tex,false,om):math(r.tex,false,copy);
   var s=esc(r.s);if(r.c)s='<code>'+s+'</code>';if(r.b)s='<b>'+s+'</b>';if(r.i)s='<i>'+s+'</i>';return s}).join('')}
-function html(B,copy){return B.map(function(b){
-  if(b.t==='h')return '<h'+b.n+'>'+hruns(b.r,copy)+'</h'+b.n+'>';
-  if(b.t==='p')return '<p>'+hruns(b.r,copy)+'</p>';
-  if(b.t==='eq')return copy?'<p style="text-align:center">'+math(b.tex,false,1)+'</p>':'<div class="eq">'+math(b.tex,true)+'</div>';
-  if(b.t==='li')return '<p style="margin-left:24px">'+b.mark+' '+hruns(b.r,copy)+'</p>';
+function html(B,copy,om){return B.map(function(b){
+  if(b.t==='h')return '<h'+b.n+'>'+hruns(b.r,copy,om)+'</h'+b.n+'>';
+  if(b.t==='p')return '<p>'+hruns(b.r,copy,om)+'</p>';
+  if(b.t==='eq')return copy?'<p style="text-align:center">'+(om?wmath(b.tex,true,om):math(b.tex,false,1))+'</p>':'<div class="eq">'+math(b.tex,true)+'</div>';
+  if(b.t==='li')return '<p style="margin-left:24px">'+b.mark+' '+hruns(b.r,copy,om)+'</p>';
   if(b.t==='code')return '<pre style="font-family:Consolas,monospace">'+esc(b.s)+'</pre>';
-  if(b.t==='tbl')return '<table border="1" cellpadding="5" style="border-collapse:collapse">'+b.rows.map(function(r,i){return '<tr>'+r.map(function(c){var tg=i?'td':'th';return '<'+tg+'>'+hruns(c,copy)+'</'+tg+'>'}).join('')+'</tr>'}).join('')+'</table>';
+  if(b.t==='tbl')return '<table border="1" cellpadding="5" style="border-collapse:collapse">'+b.rows.map(function(r,i){return '<tr>'+r.map(function(c){var tg=i?'td':'th';return '<'+tg+'>'+hruns(c,copy,om)+'</'+tg+'>'}).join('')+'</tr>'}).join('')+'</table>';
   return ''}).join('\n')}
 function wr(t,r){var p='';if(r.c)p+='<w:rFonts w:ascii="Consolas" w:hAnsi="Consolas"/>';if(r.b)p+='<w:b/>';if(r.i)p+='<w:i/>';
   return '<w:r>'+(p?'<w:rPr>'+p+'</w:rPr>':'')+'<w:t xml:space="preserve">'+esc(t)+'</w:t></w:r>'}

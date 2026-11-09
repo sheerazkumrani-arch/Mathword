@@ -30,10 +30,13 @@ $('copyall').onclick=function(){var e=MTW.eqs(blocks);if(!e.length)return toast(
 $('copytext').onclick=function(){if(!inp.value.trim())return toast('Paste some text first');copy(MTW.plain(inp.value)).then(function(){toast('Text copied with plain equations')})};
 $('copyword').onclick=function(){
   if(!blocks.length)return toast('Paste some text first');
-  var h='<html><body><!--StartFragment-->'+MTW.html(blocks,true)+'<!--EndFragment--></body></html>';
-  if(!(navigator.clipboard&&window.ClipboardItem))return toast('Your browser cannot copy formatted text. Use Download Word file.');
-  navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([h],{type:'text/html'}),'text/plain':new Blob([MTW.plain(inp.value)],{type:'text/plain'})})])
-   .then(function(){toast('Copied. Now press Ctrl + V in Word.')}).catch(function(){toast('Copy blocked. Use Download Word file.')})};
+  if(!ommlFn)return toast('Loading the converter... please try again in a few seconds.');
+  var h='<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml" xmlns="http://www.w3.org/TR/REC-html40"><body><!--StartFragment-->'+MTW.html(blocks,true,toOmml)+'<!--EndFragment--></body></html>';
+  var pl=MTW.plain(inp.value),ta=document.createElement('textarea');ta.value=pl;document.body.appendChild(ta);ta.select();
+  function on(e){e.clipboardData.setData('text/html',h);e.clipboardData.setData('text/plain',pl);e.preventDefault()}
+  document.addEventListener('copy',on);var ok=false;try{ok=document.execCommand('copy')}catch(x){}
+  document.removeEventListener('copy',on);ta.remove();
+  toast(ok?'Copied. Press Ctrl + V in Word. If equations look wrong, use Download Word file.':'Copy blocked. Please use Download Word file.')};
 $('docx').onclick=function(){
   if(!blocks.length)return toast('Paste some text first');
   toast('Building your Word file...');
@@ -43,5 +46,5 @@ $('docx').onclick=function(){
   .then(function(b){var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='equations.docx';document.body.appendChild(a);a.click();a.remove();
     toast(ommlFn?'Downloaded equations.docx':'Downloaded, but equations are plain text (no internet for converter).')})
   .catch(function(){toast('Could not build the file. Please try again.')})};
-render();
+render();loadOmml();
 })();
