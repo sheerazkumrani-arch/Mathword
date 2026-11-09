@@ -64,3 +64,6 @@ nav{display:flex;flex-wrap:wrap;justify-content:flex-end}
 .tips b{display:block;color:var(--ink);margin-bottom:4px}
 .note{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:12px;padding:14px 18px;margin:16px 0;color:#065f46}
 .note.warn{background:#fffbeb;border-color:#fde68a;color:#92400e}
+.b2{background:#047857}.b2:hover{background:#065f46}
+.seo a,.page a,.tips a,.note a,footer a{text-decoration:underline}
+.share a,nav a,.brand{text-decoration:none}
