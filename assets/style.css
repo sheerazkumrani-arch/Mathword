@@ -67,3 +67,4 @@ nav{display:flex;flex-wrap:wrap;justify-content:flex-end}
 .b2{background:#047857}.b2:hover{background:#065f46}
 .seo a,.page a,.tips a,.note a,footer a{text-decoration:underline}
 .share a,nav a,.brand{text-decoration:none}
+pre{overflow-x:auto;background:#f1f5f9;padding:12px 14px;border-radius:8px;margin:10px 0}pre code{background:none;padding:0}

@@ -46,5 +46,5 @@ $('docx').onclick=function(){
   .then(function(b){var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='equations.docx';document.body.appendChild(a);a.click();a.remove();
     toast(ommlFn?'Downloaded equations.docx':'Downloaded, but equations are plain text (no internet for converter).')})
   .catch(function(){toast('Could not build the file. Please try again.')})};
-render();loadOmml();
+render();inp.addEventListener('focus',loadOmml,{once:true});inp.addEventListener('paste',loadOmml,{once:true});setTimeout(loadOmml,4000);
 })();
