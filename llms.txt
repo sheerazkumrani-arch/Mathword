@@ -1,0 +1,33 @@
+# KickPulse
+
+> KickPulse is a free football scores website with live scores, fixtures, results, match timelines, team statistics and lineups from leagues and cups around the world. Scores come from ESPN's public data feed and may be delayed.
+
+## Main pages
+
+- [Live football scores](https://kickpulse-football.vercel.app/): Live scores, results and fixtures from all leagues, with a date bar and match details.
+- [About KickPulse](https://kickpulse-football.vercel.app/about/): What the website offers and where the data comes from.
+- [Privacy policy](https://kickpulse-football.vercel.app/privacy-policy/): How visitor information, analytics and cookies are handled.
+
+## Live scores by competition
+
+- [Champions League live scores](https://kickpulse-football.vercel.app/champions-league-live-scores/): Live UEFA Champions League scores, fixtures and results. Tap any match for goals, cards, statistics and lineups.
+- [Europa League live scores](https://kickpulse-football.vercel.app/europa-league-live-scores/): Live UEFA Europa League scores, fixtures and results, updated while matches are being played.
+- [Conference League live scores](https://kickpulse-football.vercel.app/conference-league-live-scores/): Live UEFA Conference League scores, fixtures and results in one place.
+- [Nations League live scores](https://kickpulse-football.vercel.app/nations-league-live-scores/): Live UEFA Nations League scores, fixtures and results for national teams.
+- [Premier League live scores](https://kickpulse-football.vercel.app/premier-league-live-scores/): Live English Premier League scores, results and fixtures, updated every 30 seconds during matches.
+- [La Liga live scores](https://kickpulse-football.vercel.app/la-liga-live-scores/): Live Spanish La Liga scores, results and fixtures, including Real Madrid, Barcelona and Atletico Madrid.
+- [Serie A live scores](https://kickpulse-football.vercel.app/serie-a-live-scores/): Live Italian Serie A scores, results and fixtures with match details.
+- [Bundesliga live scores](https://kickpulse-football.vercel.app/bundesliga-live-scores/): Live German Bundesliga scores, results and fixtures with match details.
+- [Ligue 1 live scores](https://kickpulse-football.vercel.app/ligue-1-live-scores/): Live French Ligue 1 scores, results and fixtures with match details.
+- [Saudi Pro League live scores](https://kickpulse-football.vercel.app/saudi-pro-league-live-scores/): Live Saudi Pro League scores, results and fixtures with match details.
+- [MLS live scores](https://kickpulse-football.vercel.app/mls-live-scores/): Live Major League Soccer scores, results and fixtures with match details.
+- [FA Cup live scores](https://kickpulse-football.vercel.app/fa-cup-live-scores/): Live English FA Cup scores, results and fixtures with match details.
+- [FIFA World Cup 2026 live score and results](https://kickpulse-football.vercel.app/world-cup-2026-live-scores/): Results, final and match details from the 2026 World Cup, won by Spain.
+- [Football matches today](https://kickpulse-football.vercel.app/football-matches-today/): All football matches today with live scores and kick-off times in your time zone.
+- [Soccer live scores](https://kickpulse-football.vercel.app/soccer-live-scores/): Live soccer scores, MLS and international results.
+- [Real Madrid live score](https://kickpulse-football.vercel.app/real-madrid-live-score/): Real Madrid live score, fixtures and results.
+
+## More for AI assistants
+
+- [Full description of every page, keywords and images](https://kickpulse-football.vercel.app/llms-full.txt)
+- [Image sitemap](https://kickpulse-football.vercel.app/sitemap-images.xml)

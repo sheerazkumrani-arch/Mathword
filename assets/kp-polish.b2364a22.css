@@ -1,0 +1,27 @@
+/* KickPulse polish: additive only. Colors keep WCAG AA contrast. No layout rules for existing elements. */
+body{background:linear-gradient(180deg,#f3fbf7 0,#ffffff 420px) no-repeat,#fff}
+.hero h1{text-wrap:balance}
+.chip{transition:background-color .15s,border-color .15s}
+a.chip:hover{background:var(--brand-soft);border-color:var(--brand)}
+.m{transition:background-color .15s}
+.m:hover{background:#f0fdf8}
+.group{box-shadow:0 1px 2px rgba(15,23,42,.04),0 8px 24px rgba(5,150,105,.06)}
+a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:3px solid #047857;outline-offset:2px;border-radius:6px}
+.seo .kp-fig img{box-shadow:0 8px 28px rgba(15,23,42,.12)}
+.kp-more{margin:24px 0 8px;padding:20px 18px 14px;border:1px solid #d1fae5;border-left:5px solid #059669;border-radius:16px;background:linear-gradient(135deg,#f0fdf8 0,#f8fbff 100%)}
+.seo .kp-more h2{color:#0f172a;margin-top:0}
+.seo .kp-more h3{font-size:16px;color:#065f46;margin:20px 0 6px}
+.seo .kp-more h4{font-size:15px;font-weight:800;color:#0f172a;margin:14px 0 3px}
+.seo .kp-more p,.seo .kp-more li{color:#334155}
+.seo .kp-more p+p{margin-top:10px}
+.seo .kp-chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:8px 0 10px}
+.seo .kp-chips li{padding:6px 13px;border-radius:999px;background:#fff;border:1px solid #a7f3d0;font-weight:700;font-size:13px;color:#065f46}
+.kp-tzw{overflow-x:auto;margin-top:10px;border:1px solid #d1fae5;border-radius:12px;background:#fff}
+.kp-tz{width:100%;border-collapse:collapse;font-size:14px}
+.kp-tz caption{text-align:left;padding:10px 14px;font-weight:800;color:#0f172a}
+.kp-tz th,.kp-tz td{padding:9px 14px;text-align:left;border-top:1px solid #e2f5ec;color:#334155}
+.kp-tz thead th{background:#ecfdf5;color:#065f46;font-size:13px}
+.kp-tz tbody th{font-weight:700;color:#0f172a}
+.kp-tz tbody tr:nth-child(even){background:#f8fdfb}
+@media (max-width:520px){.kp-more{padding:16px 14px 10px}.kp-tz th,.kp-tz td{padding:8px 10px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}

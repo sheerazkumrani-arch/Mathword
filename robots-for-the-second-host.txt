@@ -1,0 +1,4 @@
+# Use this ONLY on the host that is NOT your main site.
+# Rename it to robots.txt on that host so Google only indexes your main address.
+User-agent: *
+Disallow: /
